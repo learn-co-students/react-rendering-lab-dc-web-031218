@@ -5,7 +5,7 @@ class Animation extends React.Component {
     super(props);
 
     this.state = {
-      url: " http://placehold.it/500x150",
+      url: " http://placehold.it/500x150"
     };
   }
 
@@ -20,10 +20,14 @@ class Animation extends React.Component {
       })
       .then(result =>
         this.setState({
-          url: result.data.fixed_height_downsampled_url,
+          url: result.data.fixed_height_downsampled_url
         })
       );
   };
+
+  componentWillUpdate() {
+    this.showLoadingBar();
+  }
 
   showLoadingBar = () => {
     const progressBar = document.getElementById("progress-bar");
