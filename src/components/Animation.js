@@ -5,8 +5,12 @@ class Animation extends React.Component {
     super(props);
 
     this.state = {
-      url: " http://placehold.it/500x150",
+      url: " http://placehold.it/500x150"
     };
+  }
+
+  componentWillUpdate() {
+    this.showLoadingBar();
   }
 
   getNewCat = () => {
@@ -20,7 +24,7 @@ class Animation extends React.Component {
       })
       .then(result =>
         this.setState({
-          url: result.data.fixed_height_downsampled_url,
+          url: result.data.fixed_height_downsampled_url
         })
       );
   };
